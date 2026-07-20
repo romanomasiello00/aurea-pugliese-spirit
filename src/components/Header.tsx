@@ -83,11 +83,11 @@ export function Header() {
         <div className="md:hidden border-t border-navy/5 bg-crema/95 backdrop-blur-md">
           <div className="px-6 py-8 flex flex-col gap-6 items-center">
             {[
-              { to: "/story", label: t("nav.story") },
-              { to: "/expression", label: t("nav.expression") },
               { to: "/craft", label: t("nav.craft") },
+              { to: "/story", label: t("nav.story") },
               { to: "/contact", label: t("nav.contact") },
             ].map((item) => (
+
               <Link
                 key={item.to}
                 to={item.to}
