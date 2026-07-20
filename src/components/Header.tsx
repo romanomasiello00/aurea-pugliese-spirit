@@ -31,11 +31,8 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-8">
         {/* Left nav (desktop) */}
         <div className="hidden md:flex gap-8 flex-1 justify-start">
-          <Link to="/story" className={linkCls}>
-            {t("nav.story")}
-          </Link>
-          <Link to="/expression" className={linkCls}>
-            {t("nav.expression")}
+          <Link to="/craft" className={linkCls}>
+            {t("nav.craft")}
           </Link>
         </div>
 
@@ -46,14 +43,15 @@ export function Header() {
 
         {/* Right nav (desktop) */}
         <div className="hidden md:flex gap-8 flex-1 justify-end items-center">
-          <Link to="/craft" className={linkCls}>
-            {t("nav.craft")}
+          <Link to="/story" className={linkCls}>
+            {t("nav.story")}
           </Link>
           <Link to="/contact" className={linkCls}>
             {t("nav.contact")}
           </Link>
           <LanguageSwitcher />
         </div>
+
 
         {/* Mobile toggle */}
         <button
@@ -85,11 +83,11 @@ export function Header() {
         <div className="md:hidden border-t border-navy/5 bg-crema/95 backdrop-blur-md">
           <div className="px-6 py-8 flex flex-col gap-6 items-center">
             {[
-              { to: "/story", label: t("nav.story") },
-              { to: "/expression", label: t("nav.expression") },
               { to: "/craft", label: t("nav.craft") },
+              { to: "/story", label: t("nav.story") },
               { to: "/contact", label: t("nav.contact") },
             ].map((item) => (
+
               <Link
                 key={item.to}
                 to={item.to}
