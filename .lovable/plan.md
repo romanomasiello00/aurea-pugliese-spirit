@@ -1,36 +1,29 @@
-## Problem
-The homepage currently renders a custom SVG (`AureaMark`) as the brand mark. It's small, low-contrast on the cream background, and visually different from the real logo you uploaded (gold sunburst + navy "AUREA / TEQUILA · PUGLIA / SOLE · TERRA · MARE · TEMPO").
+## Goal
+Update the "Expression" teaser on the homepage: remove the heading text and the typographic label image, and display the uploaded four-icons artwork (SOLE, TERRA, MARE, TEMPO) with a transparent background on the left. Keep the existing tasting notes and CTA on the right.
 
-## Fix
+## What will change
 
-1. **Upload the real logo as a CDN asset**
-   - `lovable-assets create` from `/mnt/user-uploads/Gemini_Generated_Image_z0y3gpz0y3gpz0y3.png` → `src/assets/aurea-logo-full.png.asset.json`.
+1. **Background removal**
+   - Run `imagegen--edit_image` on `user-uploads://Gemini_Generated_Image_dhw11ndhw11ndhw1.png` to remove the white/light background and produce a transparent PNG.
+   - Save the result to `/mnt/documents/aurea-four-icons-transparent.png` or a temp path for review.
 
-2. **New `AureaLogo` component** (`src/components/AureaLogo.tsx`)
-   - Simple `<img>` wrapper using the real logo, with size/variant props.
-   - Keeps `AureaMark` (the small SVG) available for tiny inline use (favicon-scale spots, footer bullet), but stops using it as the hero identity.
+2. **Asset upload**
+   - Upload the transparent PNG via `lovable-assets create` and create `src/assets/aurea-four-icons.png.asset.json`.
 
-3. **Homepage hero — make the logo the visual anchor**
-   - Replace the small `AureaMark` above the H1 with the real logo, large and centered (≈ 320–420px wide on desktop, responsive down to ~220px on mobile), sitting above the "Origin" badge.
-   - Remove the small `AureaMark` overlay from the hero landscape image (it competes with the new hero logo and is barely legible).
-   - Keep the H1 tagline "Where the golden soul of Mexico meets the timeless light of Puglia" underneath.
+3. **Homepage update (`src/routes/index.tsx`)**
+   - Remove the eyebrow (`home.expression.eyebrow`) and title (`home.expression.title`) from the top of the Expression teaser section.
+   - In the left column of the two-column grid, replace the framed typographic label and `AureaLogo` composition with the new four-icons image, centered and responsive.
+   - Keep the right column: nose / palate / finish notes and the link to `/expression`.
 
-4. **Expression teaser "label" card**
-   - Swap the typographic `AUREA` label mock for the real logo image (crop/framed on the crema card) so the bottle-label preview reflects the actual brand mark.
+4. **Verification**
+   - Build the project to confirm no import/JSX errors.
+   - Use the live preview or a Playwright screenshot to verify the icons render on the cream background with no white box and the text/CTA remain intact.
 
-5. **Header + Footer**
-   - Header: replace the tiny SVG + "AUREA" wordmark with the real logo (compact horizontal size ~28–32px tall), preserving the sticky/scroll behavior. Drop the duplicated "AUREA" text since the logo already contains it.
-   - Footer: same swap, slightly larger.
+## What stays the same
+- Color palette, typography, and overall section padding.
+- Tasting-note copy, CTA text, and the `/expression` link.
+- The existing `AureaLogo` component and other homepage sections (Hero, Story, Craft).
 
-6. **Favicon / social**
-   - Wire the same asset as favicon and og:image (absolute URL) in `__root.tsx` head.
-
-## Not changing
-- Palette, typography, layout structure, animations, routes, i18n, contact form — all untouched.
-- `AureaMark` SVG file stays in the repo (still used by AgeGate / decorative accents) but is no longer the primary identity.
-
-## Files touched
-- `src/assets/aurea-logo-full.png.asset.json` (new)
-- `src/components/AureaLogo.tsx` (new)
-- `src/components/Header.tsx`, `src/components/Footer.tsx`
-- `src/routes/index.tsx`, `src/routes/__root.tsx`
+## Notes
+- The uploaded source file is currently 1920x429 RGB without an alpha channel, so the background must be removed before it can be placed cleanly on the cream page background.
+- The user has confirmed the descriptive text and CTA should remain.
