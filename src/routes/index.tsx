@@ -74,7 +74,7 @@ function Home() {
                   <div className="mx-auto mb-3 size-14 rounded-full border border-navy/15 grid place-items-center font-display text-xl text-navy transition-colors hover:border-gold hover:text-gold">
                     {f.m}
                   </div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-gold/90">{f.r}</p>
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-navy">{f.r}</p>
                 </div>
               ))}
             </div>

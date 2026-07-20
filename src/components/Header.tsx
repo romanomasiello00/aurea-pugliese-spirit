@@ -48,9 +48,10 @@ export function Header() {
         {/* Center wordmark */}
         <Link to="/" className="flex items-center group" aria-label="Aurea home">
           <AureaLogo
-            className="h-20 md:h-24 w-auto origin-center transition-transform duration-300 ease-out group-hover:opacity-90"
+            className="h-28 md:h-32 w-auto origin-center transition-transform duration-300 ease-out group-hover:opacity-90"
             style={{ transform: `scale(${logoScale})` }}
           />
+
         </Link>
 
 
