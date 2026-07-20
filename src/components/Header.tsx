@@ -11,13 +11,22 @@ export function Header() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 8);
+      setScrollY(y);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Grow the logo as the user scrolls, capped for balance.
+  // Base 1x -> up to 1.35x between 0 and 240px of scroll.
+  const logoScale = Math.min(1.35, 1 + Math.min(scrollY, 240) / 240 * 0.35);
 
   return (
     <header
@@ -38,8 +47,12 @@ export function Header() {
 
         {/* Center wordmark */}
         <Link to="/" className="flex items-center group" aria-label="Aurea home">
-          <AureaLogo className="h-14 md:h-16 w-auto transition-transform duration-700 group-hover:scale-105" />
+          <AureaLogo
+            className="h-20 md:h-24 w-auto origin-center transition-transform duration-300 ease-out group-hover:opacity-90"
+            style={{ transform: `scale(${logoScale})` }}
+          />
         </Link>
+
 
         {/* Right nav (desktop) */}
         <div className="hidden md:flex gap-8 flex-1 justify-end items-center">
