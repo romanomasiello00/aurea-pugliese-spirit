@@ -6,6 +6,7 @@ import craftSole from "@/assets/craft-sole.jpg";
 import craftTerra from "@/assets/craft-terra.jpg";
 import craftMare from "@/assets/craft-mare.jpg";
 import craftTempo from "@/assets/craft-tempo.jpg";
+import fourIconsAsset from "@/assets/aurea-four-icons.png.asset.json";
 import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
@@ -105,31 +106,18 @@ function Home() {
       {/* EXPRESSION TEASER */}
       <section className="py-24 md:py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="eyebrow mb-6">{t("home.expression.eyebrow")}</p>
-            <h2 className="font-display text-5xl md:text-6xl font-medium text-navy italic">
-              {t("home.expression.title")}
-            </h2>
-          </div>
-
           <div className="bg-soft-white ring-1 ring-navy/5 rounded-2xl p-10 md:p-16 lg:p-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Typographic label */}
-              <div className="flex flex-col items-center">
-                <div className="w-full max-w-xs aspect-[3/4] bg-crema ring-1 ring-navy/10 rounded-md p-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                  <div className="absolute top-4 left-4 right-4 h-px bg-gold/40" />
-                  <div className="absolute bottom-4 left-4 right-4 h-px bg-gold/40" />
-                  <AureaLogo className="w-full max-w-[220px] h-auto" loading="lazy" />
-                  <div className="mt-4 space-y-2">
-                    <div className="h-px w-10 bg-gold mx-auto" />
-                    <p className="text-[10px] uppercase tracking-[0.4em] text-navy/70">
-                      Reposado
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-8 text-[10px] font-medium uppercase tracking-[0.3em] text-navy/50">
-                  40% VOL · 750 ML
-                </p>
+              {/* Four icons artwork */}
+              <div className="flex items-center justify-center">
+                <img
+                  src={fourIconsAsset.url}
+                  alt="Sole, Terra, Mare, Tempo — the four pillars of Aurea Tequila"
+                  width={1920}
+                  height={429}
+                  loading="lazy"
+                  className="w-full max-w-lg h-auto"
+                />
               </div>
 
               <div className="space-y-10">
