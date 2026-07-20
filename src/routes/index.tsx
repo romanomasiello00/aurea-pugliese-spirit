@@ -21,7 +21,7 @@ function Home() {
       {/* HERO */}
       <section className="relative pt-16 md:pt-24 pb-24 md:pb-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-          <AureaLogo className="w-64 md:w-80 lg:w-96 h-auto mb-10 fade-in" />
+          <AureaLogo className="w-72 md:w-[26rem] lg:w-[32rem] mb-10 fade-in" />
 
           <div className="mb-8 py-2 px-4 border border-gold/40 rounded-full fade-in">
             <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">

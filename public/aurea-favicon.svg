@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" shape-rendering="geometricPrecision">
+  <rect width="100" height="100" fill="none"/>
+  <defs>
+    <path id="ray" d="M50 13 L53.2 47 L50 55 L46.8 47 Z"/>
+  </defs>
+  <g stroke="#c9a84c" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <path d="M50 3 L58 25 L80 11 L75 37 L98 50 L75 63 L80 89 L58 75 L50 97 L42 75 L20 89 L25 63 L2 50 L25 37 L20 11 L42 25 Z" opacity="0.82"/>
+    <circle cx="50" cy="50" r="37"/>
+  </g>
+  <g fill="#c9a84c" opacity="0.9">
+    <use href="#ray" transform="rotate(0 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(15 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(30 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(45 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(60 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(75 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(90 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(105 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(120 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(135 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(150 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(165 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(180 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(195 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(210 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(225 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(240 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(255 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(270 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(285 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(300 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(315 50 50)" opacity="0.62"/>
+    <use href="#ray" transform="rotate(330 50 50)" opacity="0.9"/><use href="#ray" transform="rotate(345 50 50)" opacity="0.62"/>
+  </g>
+  <g fill="none" stroke="#0f1b3d" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M50 37 C42 46 42 58 50 67 C58 58 58 46 50 37 Z" fill="#f5efe4"/>
+    <path d="M35 49 C36 60 42 67 50 68 C48 58 43 52 35 49 Z" fill="#f5efe4"/>
+    <path d="M65 49 C64 60 58 67 50 68 C52 58 57 52 65 49 Z" fill="#f5efe4"/>
+  </g>
+</svg>
