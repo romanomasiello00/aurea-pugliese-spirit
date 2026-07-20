@@ -1,5 +1,3 @@
-import { AureaMark } from "./AureaMark";
-
 interface Props {
   className?: string;
   alt?: string;
@@ -12,23 +10,74 @@ interface Props {
  */
 export function AureaLogo({ className, alt = "Aurea Tequila Puglia", style }: Props) {
   return (
-    <div
-      className={"select-none flex flex-col items-center text-center " + (className ?? "")}
+    <svg
+      className={className}
       style={style}
       role="img"
       aria-label={alt}
+      viewBox="0 0 900 610"
+      xmlns="http://www.w3.org/2000/svg"
+      shapeRendering="geometricPrecision"
     >
-      <AureaMark className="w-[39%] min-w-16 max-w-36 h-auto mb-[7%] drop-shadow-[0_1px_0_rgba(15,27,61,0.08)]" />
-      <span className="font-display text-navy font-medium uppercase leading-none tracking-[0.18em] text-[clamp(3.2rem,22vw,9.5rem)] md:text-[clamp(4rem,10vw,8rem)]">
-        Aurea
-      </span>
-      <span className="mt-[3%] flex items-center justify-center gap-[0.55em] font-sans text-navy font-semibold uppercase leading-none tracking-[0.28em] text-[clamp(0.75rem,3.4vw,1.6rem)] md:text-[clamp(0.8rem,1.75vw,1.35rem)]">
-        Tequila <span className="text-gold text-[1.35em] leading-none">✹</span> Puglia
-      </span>
-      <span className="mt-[5%] font-sans text-navy/90 font-medium uppercase leading-none tracking-[0.24em] text-[clamp(0.65rem,2.7vw,1.25rem)] md:text-[clamp(0.7rem,1.35vw,1.05rem)]">
-        Sole • Terra • Mare • Tempo
-      </span>
-    </div>
+      <defs>
+        <path id="logo-ray" d="M450 40 L462 145 L450 172 L438 145 Z" />
+      </defs>
+
+      <g transform="translate(0 0)">
+        <g stroke="#c9a84c" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" fill="none">
+          <path d="M450 8 L478 88 L555 39 L538 129 L620 176 L538 223 L555 313 L478 264 L450 344 L422 264 L345 313 L362 223 L280 176 L362 129 L345 39 L422 88 Z" opacity="0.86" />
+          <circle cx="450" cy="176" r="124" />
+        </g>
+        <g fill="#c9a84c">
+          {Array.from({ length: 28 }).map((_, i) => (
+            <use key={i} href="#logo-ray" transform={`rotate(${i * (360 / 28)} 450 176)`} opacity={i % 2 ? 0.58 : 0.9} />
+          ))}
+        </g>
+        <g fill="none" stroke="#0f1b3d" strokeWidth="10" strokeLinejoin="round" strokeLinecap="round">
+          <path d="M450 132 C423 163 424 202 450 233 C476 202 477 163 450 132 Z" fill="#f5efe4" />
+          <path d="M400 174 C403 211 423 235 450 237 C444 203 426 183 400 174 Z" fill="#f5efe4" />
+          <path d="M500 174 C497 211 477 235 450 237 C456 203 474 183 500 174 Z" fill="#f5efe4" />
+        </g>
+      </g>
+
+      <text
+        x="450"
+        y="465"
+        textAnchor="middle"
+        fill="#0f1b3d"
+        fontFamily="Cormorant Garamond, Georgia, serif"
+        fontSize="132"
+        fontWeight="500"
+        letterSpacing="30"
+      >
+        AUREA
+      </text>
+      <text
+        x="450"
+        y="542"
+        textAnchor="middle"
+        fill="#0f1b3d"
+        fontFamily="Inter, Arial, sans-serif"
+        fontSize="34"
+        fontWeight="700"
+        letterSpacing="16"
+      >
+        TEQUILA  ✹  PUGLIA
+      </text>
+      <text
+        x="450"
+        y="595"
+        textAnchor="middle"
+        fill="#0f1b3d"
+        fontFamily="Inter, Arial, sans-serif"
+        fontSize="26"
+        fontWeight="600"
+        letterSpacing="12"
+        opacity="0.92"
+      >
+        SOLE • TERRA • MARE • TEMPO
+      </text>
+    </svg>
   );
 }
 
