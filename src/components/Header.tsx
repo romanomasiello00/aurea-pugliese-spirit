@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "@/lib/i18n";
-import { AureaMark } from "./AureaMark";
+import { AureaLogo } from "./AureaLogo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const linkCls =
@@ -40,11 +40,8 @@ export function Header() {
         </div>
 
         {/* Center wordmark */}
-        <Link to="/" className="flex flex-col items-center gap-1 group" aria-label="Aurea home">
-          <AureaMark className="size-7 transition-transform duration-700 group-hover:rotate-12" />
-          <span className="font-display text-xl md:text-2xl font-medium tracking-[0.35em] text-navy uppercase leading-none">
-            Aurea
-          </span>
+        <Link to="/" className="flex items-center group" aria-label="Aurea home">
+          <AureaLogo className="h-14 md:h-16 w-auto transition-transform duration-700 group-hover:scale-105" />
         </Link>
 
         {/* Right nav (desktop) */}

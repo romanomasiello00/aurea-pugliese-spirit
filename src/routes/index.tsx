@@ -6,7 +6,7 @@ import craftSole from "@/assets/craft-sole.jpg";
 import craftTerra from "@/assets/craft-terra.jpg";
 import craftMare from "@/assets/craft-mare.jpg";
 import craftTempo from "@/assets/craft-tempo.jpg";
-import { AureaMark } from "@/components/AureaMark";
+import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -20,6 +20,8 @@ function Home() {
       {/* HERO */}
       <section className="relative pt-16 md:pt-24 pb-24 md:pb-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+          <AureaLogo className="w-64 md:w-80 lg:w-96 h-auto mb-10 fade-in" />
+
           <div className="mb-8 py-2 px-4 border border-gold/40 rounded-full fade-in">
             <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
               {t("badge.origin")}
@@ -44,7 +46,6 @@ function Home() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-crema/60" />
-              <AureaMark className="absolute bottom-6 right-6 size-14 opacity-70" />
             </div>
           </div>
         </div>
@@ -115,23 +116,16 @@ function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Typographic label */}
               <div className="flex flex-col items-center">
-                <div className="w-full max-w-xs aspect-[3/4] bg-crema ring-1 ring-navy/10 rounded-md p-10 flex flex-col items-center justify-between text-center relative overflow-hidden">
+                <div className="w-full max-w-xs aspect-[3/4] bg-crema ring-1 ring-navy/10 rounded-md p-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
                   <div className="absolute top-4 left-4 right-4 h-px bg-gold/40" />
                   <div className="absolute bottom-4 left-4 right-4 h-px bg-gold/40" />
-                  <AureaMark className="size-14 mt-4" />
-                  <div className="space-y-3">
-                    <p className="font-display text-4xl text-navy tracking-[0.15em] uppercase">
-                      Aurea
-                    </p>
+                  <AureaLogo className="w-full max-w-[220px] h-auto" loading="lazy" />
+                  <div className="mt-4 space-y-2">
                     <div className="h-px w-10 bg-gold mx-auto" />
                     <p className="text-[10px] uppercase tracking-[0.4em] text-navy/70">
                       Reposado
                     </p>
                   </div>
-                  <p className="text-[8px] tracking-[0.4em] text-navy/50 leading-relaxed pb-2">
-                    100% BLUE AGAVE<br />
-                    HECHO EN MÉXICO
-                  </p>
                 </div>
                 <p className="mt-8 text-[10px] font-medium uppercase tracking-[0.3em] text-navy/50">
                   40% VOL · 750 ML
