@@ -6,6 +6,7 @@ import craftSole from "@/assets/craft-sole.jpg";
 import craftTerra from "@/assets/craft-terra.jpg";
 import craftMare from "@/assets/craft-mare.jpg";
 import craftTempo from "@/assets/craft-tempo.jpg";
+import fourIconsAsset from "@/assets/aurea-four-icons.png.asset.json";
 import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
