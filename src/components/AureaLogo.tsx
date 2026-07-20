@@ -3,19 +3,22 @@ interface Props {
   alt?: string;
   loading?: "eager" | "lazy";
   style?: React.CSSProperties;
+  variant?: "full" | "compact";
 }
 
 /**
  * Full Aurea brand logo rendered as vector/text so it stays crisp at every size.
  */
-export function AureaLogo({ className, alt = "Aurea Tequila Puglia", style }: Props) {
+export function AureaLogo({ className, alt = "Aurea Tequila Puglia", style, variant = "full" }: Props) {
+  const isCompact = variant === "compact";
+
   return (
     <svg
       className={className}
       style={style}
       role="img"
       aria-label={alt}
-      viewBox="0 0 900 610"
+      viewBox={isCompact ? "0 0 900 555" : "0 0 900 610"}
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"
     >
@@ -64,21 +67,23 @@ export function AureaLogo({ className, alt = "Aurea Tequila Puglia", style }: Pr
       >
         TEQUILA  ✹  PUGLIA
       </text>
-      <text
-        x="450"
-        y="595"
-        textAnchor="middle"
-        fill="#0f1b3d"
-        fontFamily="Inter, Arial, sans-serif"
-        fontSize="26"
-        fontWeight="600"
-        letterSpacing="12"
-        opacity="0.92"
-      >
-        SOLE • TERRA • MARE • TEMPO
-      </text>
+      {!isCompact && (
+        <text
+          x="450"
+          y="595"
+          textAnchor="middle"
+          fill="#0f1b3d"
+          fontFamily="Inter, Arial, sans-serif"
+          fontSize="26"
+          fontWeight="600"
+          letterSpacing="12"
+          opacity="0.92"
+        >
+          SOLE • TERRA • MARE • TEMPO
+        </text>
+      )}
     </svg>
   );
 }
 
-export const aureaLogoUrl = "/aurea-favicon.svg";
+export const aureaLogoUrl = "/aurea-tab-icon.svg";
