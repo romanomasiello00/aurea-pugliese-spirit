@@ -6,7 +6,7 @@ import craftSole from "@/assets/craft-sole.jpg";
 import craftTerra from "@/assets/craft-terra.jpg";
 import craftMare from "@/assets/craft-mare.jpg";
 import craftTempo from "@/assets/craft-tempo.jpg";
-import { AureaMark } from "@/components/AureaMark";
+import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -20,6 +20,8 @@ function Home() {
       {/* HERO */}
       <section className="relative pt-16 md:pt-24 pb-24 md:pb-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+          <AureaLogo className="w-64 md:w-80 lg:w-96 h-auto mb-10 fade-in" />
+
           <div className="mb-8 py-2 px-4 border border-gold/40 rounded-full fade-in">
             <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
               {t("badge.origin")}
