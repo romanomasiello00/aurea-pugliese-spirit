@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "@/lib/i18n";
-import { AureaMark } from "./AureaMark";
+import { AureaLogo } from "./AureaLogo";
 
 export function Footer() {
   const { t } = useTranslation();
@@ -9,12 +9,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
           <div className="space-y-6 max-w-sm">
-            <div className="flex items-center gap-3">
-              <AureaMark className="size-8" />
-              <span className="font-display text-2xl tracking-[0.35em] text-navy uppercase">
-                Aurea
-              </span>
-            </div>
+            <AureaLogo className="h-24 w-auto" loading="lazy" />
             <p className="text-[11px] uppercase tracking-[0.25em] text-navy/50 leading-loose">
               {t("footer.tagline")}
             </p>
