@@ -73,7 +73,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aurea — Tequila Puglia · Hecho en México, Imported to Puglia" },
+      { title: "Aurea — Tequila Puglia" },
       {
         name: "description",
         content:
@@ -84,16 +84,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Where the golden soul of Mexico meets the timeless light of Puglia. A tequila made in Mexico, elevated in Puglia.",
+          "Aurea is a premium tequila born where two sun-blessed lands meet — 100% blue agave crafted in Mexico, brought home to Puglia. Reposado, copper-distilled, rested in oak.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Aurea Tequila" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#f5efe4" },
+      { name: "twitter:title", content: "Aurea — Tequila Puglia" },
+      { name: "twitter:description", content: "Aurea is a premium tequila born where two sun-blessed lands meet — 100% blue agave crafted in Mexico, brought home to Puglia. Reposado, copper-distilled, rested in oak." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04dcf0fa-c943-43cd-8423-9814e3124d0b/id-preview-1787fef6--1f2af0cb-525a-47da-b48f-0ffd4da33691.lovable.app-1784533953874.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04dcf0fa-c943-43cd-8423-9814e3124d0b/id-preview-1787fef6--1f2af0cb-525a-47da-b48f-0ffd4da33691.lovable.app-1784533953874.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
