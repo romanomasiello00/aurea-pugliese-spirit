@@ -97,7 +97,7 @@ export function AureaLogo({
           fontWeight="500"
           letterSpacing="14"
         >
-          TEQUILA  <tspan fill="#c9a84c">✹</tspan>  PUGLIA
+          TEQUILA  <tspan fill="#c9a84c" fontSize="56" fontWeight="600" dy="-4">✹</tspan>  PUGLIA
         </text>
       ) : (
 
