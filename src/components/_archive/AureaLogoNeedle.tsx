@@ -9,14 +9,11 @@ interface Props {
 /**
  * Aurea brand lockup — SVG so it stays sharp at every size.
  *
- * Emblem construction (matches the reference the client approved):
- *   – gold 8-point star outline
- *   – concentric gold circle
- *   – 28 tapered needle rays radiating outward, alternating opacity
- *   – navy-outlined 3-leaf lotus centerpiece filled cream
+ * Layout matches the aureatequila.it (Vercel) version:
+ *   emblem  →  AUREA wordmark  →  TEQUILA ✹ PUGLIA  →  SOLE • TERRA • MARE • TEMPO
+ * Wordmark uses Cormorant Garamond (the serif from the Lovable version).
  *
- * variant="full"    → emblem + AUREA + TEQUILA ✹ PUGLIA + SOLE • TERRA • MARE • TEMPO
- * variant="compact" → emblem + TEQUILA ✹ PUGLIA (used in the sticky header)
+ * variant="compact" (header): emblem + "TEQUILA • PUGLIA" only.
  */
 export function AureaLogo({
   className,
@@ -25,6 +22,9 @@ export function AureaLogo({
   variant = "full",
 }: Props) {
   const isCompact = variant === "compact";
+
+  // Compact viewport: emblem (top ~380 tall) + small caption strip.
+  // Full viewport: emblem + AUREA + tequila/puglia + sole/terra/mare/tempo line.
   const viewBox = isCompact ? "0 0 900 470" : "0 0 900 780";
 
   return (
@@ -38,50 +38,48 @@ export function AureaLogo({
       shapeRendering="geometricPrecision"
     >
       <defs>
-        {/* Single tapered needle ray. Rotated 28× around the emblem center (450, 200). */}
-        <path id="aurea-ray" d="M450 32 L462 137 L450 164 L438 137 Z" />
+        {/* Long thin needle-ray, tapered at both ends. */}
+        <path id="aurea-ray-long" d="M450 6 L452 96 L450 202 L448 96 Z" />
+        {/* Shorter secondary needle for the half-step ring. */}
+        <path id="aurea-ray-short" d="M450 40 L451.5 110 L450 190 L448.5 110 Z" />
       </defs>
 
-      {/* ---------- EMBLEM (centered at 450, 200) ---------- */}
+      {/* ---------- EMBLEM ---------- */}
       <g>
-        {/* 8-point star outline + inner circle, in gold */}
-        <g
-          stroke="#c9a84c"
-          strokeWidth="4"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-          fill="none"
-        >
-          <path
-            d="M450 32 L478 112 L555 63 L538 153 L620 200 L538 247 L555 337 L478 288 L450 368 L422 288 L345 337 L362 247 L280 200 L362 153 L345 63 L422 112 Z"
-            opacity="0.88"
-          />
-          <circle cx="450" cy="200" r="124" />
-        </g>
-
-        {/* 28 needle rays */}
+        {/* 24 long needle rays */}
         <g fill="#c9a84c">
-          {Array.from({ length: 28 }).map((_, i) => (
+          {Array.from({ length: 24 }).map((_, i) => (
             <use
-              key={`ray-${i}`}
-              href="#aurea-ray"
-              transform={`rotate(${i * (360 / 28)} 450 200)`}
-              opacity={i % 2 ? 0.58 : 0.9}
+              key={`ra-${i}`}
+              href="#aurea-ray-long"
+              transform={`rotate(${i * (360 / 24)} 450 200)`}
+            />
+          ))}
+          {/* 24 shorter rays offset by half-step */}
+          {Array.from({ length: 24 }).map((_, i) => (
+            <use
+              key={`rb-${i}`}
+              href="#aurea-ray-short"
+              transform={`rotate(${i * (360 / 24) + 360 / 48} 450 200)`}
+              opacity={0.75}
             />
           ))}
         </g>
 
-        {/* Center lotus — three navy-outlined leaves filled cream */}
-        <g
-          fill="#f5efe4"
-          stroke="#0f1b3d"
-          strokeWidth="10"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        >
-          <path d="M450 156 C423 187 424 226 450 257 C476 226 477 187 450 156 Z" />
-          <path d="M400 198 C403 235 423 259 450 261 C444 227 426 207 400 198 Z" />
-          <path d="M500 198 C497 235 477 259 450 261 C456 227 474 207 500 198 Z" />
+        {/* Central agave sprout — three angular navy leaves. */}
+        <g fill="#0f1b3d">
+          {/* center tall leaf */}
+          <path d="M450 138 L442 210 L450 244 L458 210 Z" />
+          {/* left leaf, tilted */}
+          <path
+            d="M450 244 L418 208 L420 176 L446 214 Z"
+            transform="rotate(-4 450 210)"
+          />
+          {/* right leaf, tilted */}
+          <path
+            d="M450 244 L482 208 L480 176 L454 214 Z"
+            transform="rotate(4 450 210)"
+          />
         </g>
       </g>
 
