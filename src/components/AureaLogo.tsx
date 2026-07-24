@@ -7,10 +7,25 @@ interface Props {
 }
 
 /**
- * Full Aurea brand logo rendered as vector/text so it stays crisp at every size.
+ * Aurea brand lockup — SVG so it stays sharp at every size.
+ *
+ * Layout matches the aureatequila.it (Vercel) version:
+ *   emblem  →  AUREA wordmark  →  TEQUILA ✹ PUGLIA  →  SOLE • TERRA • MARE • TEMPO
+ * Wordmark uses Cormorant Garamond (the serif from the Lovable version).
+ *
+ * variant="compact" (header): emblem + "TEQUILA • PUGLIA" only.
  */
-export function AureaLogo({ className, alt = "Aurea Tequila Puglia", style, variant = "full" }: Props) {
+export function AureaLogo({
+  className,
+  alt = "Aurea Tequila Puglia",
+  style,
+  variant = "full",
+}: Props) {
   const isCompact = variant === "compact";
+
+  // Compact viewport: emblem (top ~380 tall) + small caption strip.
+  // Full viewport: emblem + AUREA + tequila/puglia + sole/terra/mare/tempo line.
+  const viewBox = isCompact ? "0 0 900 470" : "0 0 900 780";
 
   return (
     <svg
@@ -18,69 +33,142 @@ export function AureaLogo({ className, alt = "Aurea Tequila Puglia", style, vari
       style={style}
       role="img"
       aria-label={alt}
-      viewBox={isCompact ? "0 0 900 555" : "0 0 900 610"}
+      viewBox={viewBox}
       xmlns="http://www.w3.org/2000/svg"
       shapeRendering="geometricPrecision"
     >
       <defs>
-        <path id="logo-ray" d="M450 40 L462 145 L450 172 L438 145 Z" />
+        {/* A single sun ray — long, thin, tapered diamond. */}
+        <path id="aurea-ray" d="M450 8 L458 158 L450 188 L442 158 Z" />
+        {/* A shorter, softer inner ray for the second row. */}
+        <path id="aurea-ray-inner" d="M450 44 L456 150 L450 168 L444 150 Z" />
       </defs>
 
-      <g transform="translate(0 0)">
-        <g stroke="#c9a84c" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" fill="none">
-          <path d="M450 8 L478 88 L555 39 L538 129 L620 176 L538 223 L555 313 L478 264 L450 344 L422 264 L345 313 L362 223 L280 176 L362 129 L345 39 L422 88 Z" opacity="0.86" />
-          <circle cx="450" cy="176" r="124" />
-        </g>
+      {/* ---------- EMBLEM ---------- */}
+      <g>
+        {/* 16 long rays forming the outer sunburst */}
         <g fill="#c9a84c">
-          {Array.from({ length: 28 }).map((_, i) => (
-            <use key={i} href="#logo-ray" transform={`rotate(${i * (360 / 28)} 450 176)`} opacity={i % 2 ? 0.58 : 0.9} />
+          {Array.from({ length: 16 }).map((_, i) => (
+            <use
+              key={`r1-${i}`}
+              href="#aurea-ray"
+              transform={`rotate(${i * (360 / 16)} 450 200)`}
+              opacity={0.92}
+            />
+          ))}
+          {/* 16 shorter inner rays, offset by half-step for a lotus feel */}
+          {Array.from({ length: 16 }).map((_, i) => (
+            <use
+              key={`r2-${i}`}
+              href="#aurea-ray-inner"
+              transform={`rotate(${i * (360 / 16) + 360 / 32} 450 200)`}
+              opacity={0.55}
+            />
           ))}
         </g>
-        <g fill="none" stroke="#0f1b3d" strokeWidth="10" strokeLinejoin="round" strokeLinecap="round">
-          <path d="M450 132 C423 163 424 202 450 233 C476 202 477 163 450 132 Z" fill="#f5efe4" />
-          <path d="M400 174 C403 211 423 235 450 237 C444 203 426 183 400 174 Z" fill="#f5efe4" />
-          <path d="M500 174 C497 211 477 235 450 237 C456 203 474 183 500 174 Z" fill="#f5efe4" />
+
+        {/* Inner geometric circle band */}
+        <circle
+          cx="450"
+          cy="200"
+          r="112"
+          fill="none"
+          stroke="#c9a84c"
+          strokeWidth="3"
+          opacity="0.85"
+        />
+        {/* Faint inner star polygon (16-point) */}
+        <g
+          fill="none"
+          stroke="#c9a84c"
+          strokeWidth="2"
+          strokeLinejoin="round"
+          opacity="0.6"
+        >
+          <polygon
+            points={Array.from({ length: 16 })
+              .map((_, i) => {
+                const a = (i * Math.PI * 2) / 16 - Math.PI / 2;
+                const r = i % 2 === 0 ? 108 : 62;
+                const x = 450 + r * Math.cos(a);
+                const y = 200 + r * Math.sin(a);
+                return `${x.toFixed(2)},${y.toFixed(2)}`;
+              })
+              .join(" ")}
+          />
+        </g>
+
+        {/* Agave lotus at the center */}
+        <g
+          fill="#0f1b3d"
+          stroke="#0f1b3d"
+          strokeWidth="3"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        >
+          {/* center leaf */}
+          <path d="M450 148 C430 178 431 218 450 250 C469 218 470 178 450 148 Z" />
+          {/* left leaf */}
+          <path d="M410 188 C412 220 428 245 450 252 C444 224 430 200 410 188 Z" />
+          {/* right leaf */}
+          <path d="M490 188 C488 220 472 245 450 252 C456 224 470 200 490 188 Z" />
         </g>
       </g>
 
-      <text
-        x="450"
-        y="465"
-        textAnchor="middle"
-        fill="#0f1b3d"
-        fontFamily="Cormorant Garamond, Georgia, serif"
-        fontSize="132"
-        fontWeight="500"
-        letterSpacing="30"
-      >
-        AUREA
-      </text>
-      <text
-        x="450"
-        y="542"
-        textAnchor="middle"
-        fill="#0f1b3d"
-        fontFamily="Inter, Arial, sans-serif"
-        fontSize="34"
-        fontWeight="700"
-        letterSpacing="16"
-      >
-        TEQUILA  ✹  PUGLIA
-      </text>
-      {!isCompact && (
+      {/* ---------- WORDMARK ---------- */}
+      {isCompact ? (
         <text
           x="450"
-          y="595"
+          y="440"
           textAnchor="middle"
           fill="#0f1b3d"
-          fontFamily="Inter, Arial, sans-serif"
-          fontSize="26"
-          fontWeight="600"
-          letterSpacing="12"
-          opacity="0.92"
+          fontFamily="'Cormorant Garamond', Georgia, serif"
+          fontSize="46"
+          fontWeight="500"
+          letterSpacing="14"
         >
-          SOLE • TERRA • MARE • TEMPO
+          TEQUILA  ✹  PUGLIA
         </text>
+      ) : (
+        <>
+          <text
+            x="450"
+            y="530"
+            textAnchor="middle"
+            fill="#0f1b3d"
+            fontFamily="'Cormorant Garamond', Georgia, serif"
+            fontSize="180"
+            fontWeight="500"
+            letterSpacing="32"
+          >
+            AUREA
+          </text>
+          <text
+            x="450"
+            y="620"
+            textAnchor="middle"
+            fill="#0f1b3d"
+            fontFamily="'Cormorant Garamond', Georgia, serif"
+            fontSize="46"
+            fontWeight="500"
+            letterSpacing="18"
+          >
+            TEQUILA  ✹  PUGLIA
+          </text>
+          <text
+            x="450"
+            y="700"
+            textAnchor="middle"
+            fill="#0f1b3d"
+            fontFamily="Inter, Arial, sans-serif"
+            fontSize="30"
+            fontWeight="600"
+            letterSpacing="14"
+            opacity="0.92"
+          >
+            SOLE  •  TERRA  •  MARE  •  TEMPO
+          </text>
+        </>
       )}
     </svg>
   );

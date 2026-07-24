@@ -6,7 +6,7 @@ import craftSole from "@/assets/craft-sole.jpg";
 import craftTerra from "@/assets/craft-terra.jpg";
 import craftMare from "@/assets/craft-mare.jpg";
 import craftTempo from "@/assets/craft-tempo.jpg";
-import fourIconsAsset from "@/assets/aurea-four-icons.png.asset.json";
+import fourIcons from "@/assets/aurea-four-icons.png";
 import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
@@ -111,7 +111,7 @@ function Home() {
               {/* Four icons artwork */}
               <div className="flex items-center justify-center">
                 <img
-                  src={fourIconsAsset.url}
+                  src={fourIcons}
                   alt="Sole, Terra, Mare, Tempo — the four pillars of Aurea Tequila"
                   width={1920}
                   height={429}
