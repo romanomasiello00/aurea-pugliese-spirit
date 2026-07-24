@@ -38,80 +38,48 @@ export function AureaLogo({
       shapeRendering="geometricPrecision"
     >
       <defs>
-        {/* A single sun ray — long, thin, tapered diamond. */}
-        <path id="aurea-ray" d="M450 8 L458 158 L450 188 L442 158 Z" />
-        {/* A shorter, softer inner ray for the second row. */}
-        <path id="aurea-ray-inner" d="M450 44 L456 150 L450 168 L444 150 Z" />
+        {/* Long thin needle-ray, tapered at both ends. */}
+        <path id="aurea-ray-long" d="M450 6 L452 96 L450 202 L448 96 Z" />
+        {/* Shorter secondary needle for the half-step ring. */}
+        <path id="aurea-ray-short" d="M450 40 L451.5 110 L450 190 L448.5 110 Z" />
       </defs>
 
       {/* ---------- EMBLEM ---------- */}
       <g>
-        {/* 16 long rays forming the outer sunburst */}
+        {/* 24 long needle rays */}
         <g fill="#c9a84c">
-          {Array.from({ length: 16 }).map((_, i) => (
+          {Array.from({ length: 24 }).map((_, i) => (
             <use
-              key={`r1-${i}`}
-              href="#aurea-ray"
-              transform={`rotate(${i * (360 / 16)} 450 200)`}
-              opacity={0.92}
+              key={`ra-${i}`}
+              href="#aurea-ray-long"
+              transform={`rotate(${i * (360 / 24)} 450 200)`}
             />
           ))}
-          {/* 16 shorter inner rays, offset by half-step for a lotus feel */}
-          {Array.from({ length: 16 }).map((_, i) => (
+          {/* 24 shorter rays offset by half-step */}
+          {Array.from({ length: 24 }).map((_, i) => (
             <use
-              key={`r2-${i}`}
-              href="#aurea-ray-inner"
-              transform={`rotate(${i * (360 / 16) + 360 / 32} 450 200)`}
-              opacity={0.55}
+              key={`rb-${i}`}
+              href="#aurea-ray-short"
+              transform={`rotate(${i * (360 / 24) + 360 / 48} 450 200)`}
+              opacity={0.75}
             />
           ))}
         </g>
 
-        {/* Inner geometric circle band */}
-        <circle
-          cx="450"
-          cy="200"
-          r="112"
-          fill="none"
-          stroke="#c9a84c"
-          strokeWidth="3"
-          opacity="0.85"
-        />
-        {/* Faint inner star polygon (16-point) */}
-        <g
-          fill="none"
-          stroke="#c9a84c"
-          strokeWidth="2"
-          strokeLinejoin="round"
-          opacity="0.6"
-        >
-          <polygon
-            points={Array.from({ length: 16 })
-              .map((_, i) => {
-                const a = (i * Math.PI * 2) / 16 - Math.PI / 2;
-                const r = i % 2 === 0 ? 108 : 62;
-                const x = 450 + r * Math.cos(a);
-                const y = 200 + r * Math.sin(a);
-                return `${x.toFixed(2)},${y.toFixed(2)}`;
-              })
-              .join(" ")}
+        {/* Central agave sprout — three angular navy leaves. */}
+        <g fill="#0f1b3d">
+          {/* center tall leaf */}
+          <path d="M450 138 L442 210 L450 244 L458 210 Z" />
+          {/* left leaf, tilted */}
+          <path
+            d="M450 244 L418 208 L420 176 L446 214 Z"
+            transform="rotate(-4 450 210)"
           />
-        </g>
-
-        {/* Agave lotus at the center */}
-        <g
-          fill="#0f1b3d"
-          stroke="#0f1b3d"
-          strokeWidth="3"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        >
-          {/* center leaf */}
-          <path d="M450 148 C430 178 431 218 450 250 C469 218 470 178 450 148 Z" />
-          {/* left leaf */}
-          <path d="M410 188 C412 220 428 245 450 252 C444 224 430 200 410 188 Z" />
-          {/* right leaf */}
-          <path d="M490 188 C488 220 472 245 450 252 C456 224 470 200 490 188 Z" />
+          {/* right leaf, tilted */}
+          <path
+            d="M450 244 L482 208 L480 176 L454 214 Z"
+            transform="rotate(4 450 210)"
+          />
         </g>
       </g>
 
