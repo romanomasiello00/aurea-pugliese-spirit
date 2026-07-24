@@ -8,8 +8,8 @@ export function Footer() {
     <footer className="border-t border-navy/10 bg-crema">
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
-          <div className="space-y-6 max-w-sm">
-            <AureaLogo className="h-24 w-auto" loading="lazy" />
+          <div className="space-y-6 max-w-md">
+            <AureaLogo className="w-64 md:w-80 h-auto" loading="lazy" />
             <p className="text-[11px] uppercase tracking-[0.25em] text-navy/50 leading-loose">
               {t("footer.tagline")}
             </p>
