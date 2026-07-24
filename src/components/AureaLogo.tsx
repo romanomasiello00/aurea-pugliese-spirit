@@ -97,9 +97,10 @@ export function AureaLogo({
           fontWeight="500"
           letterSpacing="14"
         >
-          TEQUILA  ✹  PUGLIA
+          TEQUILA  <tspan fill="#c9a84c">✹</tspan>  PUGLIA
         </text>
       ) : (
+
         <>
           <text
             x="450"
@@ -123,8 +124,9 @@ export function AureaLogo({
             fontWeight="500"
             letterSpacing="18"
           >
-            TEQUILA  ✹  PUGLIA
+            TEQUILA  <tspan fill="#c9a84c">✹</tspan>  PUGLIA
           </text>
+
           <text
             x="450"
             y="700"
