@@ -102,18 +102,8 @@ export function AureaLogo({
       ) : (
 
         <>
-          <text
-            x="450"
-            y="530"
-            textAnchor="middle"
-            fill="#0f1b3d"
-            fontFamily="Didot, 'Bodoni Moda', 'GFS Didot', 'Didot LT STD', Georgia, serif"
-            fontSize="160"
-            fontWeight="400"
-            letterSpacing="23"
-          >
-            AUREA
-          </text>
+          <AureaWordmark x={150} y={413} width={600} height={117} fill="#0f1b3d" />
+
           <text
             x="450"
             y="620"
