@@ -1,3 +1,5 @@
+import { AureaWordmark } from "./AureaWordmark";
+
 interface Props {
   className?: string;
   alt?: string;
