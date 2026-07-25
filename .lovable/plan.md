@@ -1,16 +1,12 @@
-## Problem
-The footer logo currently renders at `h-24` (96px tall) inside a `max-w-sm` column. Because the `AureaLogo` "full" variant uses a `900×780` viewBox (emblem + AUREA + TEQUILA ✹ PUGLIA + SOLE • TERRA • MARE • TEMPO), at that height the actual wordmark ends up ~30–40px tall — too small to read cleanly, so it also looks low quality even though it's pure SVG.
+## Goal
+The "AUREA" wordmark in the SVG logo currently renders in Cormorant Garamond, which is lighter and narrower than the original logo file. The reference shows a high-contrast Didone-style serif: thick stems, hairline thins, flat spurred serifs, wide letterspacing.
 
-## Fix
-Presentation-only change in `src/components/Footer.tsx`:
-
-1. Widen the left column so the logo has room to breathe: replace `max-w-sm` with `max-w-md` (or drop the cap on desktop).
-2. Give the logo an explicit, larger size driven by width (SVG scales cleanly):
-   - `w-64 md:w-80 h-auto` instead of `h-24 w-auto`.
-   - That takes the wordmark from ~35px to ~55–70px tall — comparable to the header lockup and clearly legible.
-3. Keep `loading="lazy"` and the existing color tokens. No changes to the SVG component itself, no font/color/layout changes elsewhere.
+## Change
+1. **Load the font** — in `src/routes/__root.tsx`, extend the existing Google Fonts link to also request `Playfair Display` (weights 500/600), the closest free match to the original wordmark. No new link tag, just an added `&family=` parameter.
+2. **Apply it to the wordmark only** — in `src/components/AureaLogo.tsx`, change the `AUREA` `<text>` element's `fontFamily` to `'Playfair Display', Georgia, serif` and bump `fontWeight` to `600` so the stem contrast matches the reference. Keep the current `fontSize` 180 and letterSpacing 32 (tuned slightly if the new font measures wider).
+3. **Leave everything else untouched** — "TEQUILA ✹ PUGLIA" and "SOLE • TERRA • MARE • TEMPO" keep their current fonts, sizes, and the gold star; emblem SVG unchanged; header compact variant unchanged.
 
 ## Verification
-- Playwright screenshot of the footer at desktop (1280) and mobile (390) widths to confirm the logo is visibly larger, sharp, and doesn't overflow its column or crowd the nav lists.
+Playwright screenshot of the homepage hero logo and the footer logo, compared against the uploaded reference, to confirm the wordmark shape and width look right and nothing overflows the viewBox.
 
-No changes to routes, copy, or business logic.
+Note: if you'd prefer a different serif (e.g. Prata, Bodoni Moda, or Cormorant at a heavier weight), tell me and I'll use that instead — Playfair Display is my read of the reference.
