@@ -107,10 +107,10 @@ export function AureaLogo({
             y="530"
             textAnchor="middle"
             fill="#0f1b3d"
-            fontFamily="'Cormorant Garamond', Georgia, serif"
-            fontSize="180"
-            fontWeight="500"
-            letterSpacing="32"
+            fontFamily="'Playfair Display', Georgia, serif"
+            fontSize="160"
+            fontWeight="600"
+            letterSpacing="26"
           >
             AUREA
           </text>
