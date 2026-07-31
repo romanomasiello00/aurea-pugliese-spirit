@@ -43,10 +43,10 @@ export function BottleFrame({ image, alt, label, className, placeholderNote }: P
         />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6">
-          <AureaMark className="w-12 opacity-40 transition-opacity duration-700 group-hover/frame:opacity-70" />
-          <BottleSilhouette className="h-[52%] w-auto text-navy/25 transition-transform duration-[1200ms] ease-out group-hover/frame:-translate-y-1" />
+          <AureaMark className="w-12 opacity-60 transition-opacity duration-700 group-hover/frame:opacity-90" />
+          <BottleSilhouette className="h-[52%] w-auto text-navy/40 transition-transform duration-[1200ms] ease-out group-hover/frame:-translate-y-1" />
           {placeholderNote && (
-            <p className="absolute bottom-7 text-center text-[9px] uppercase tracking-[0.35em] text-navy/35">
+            <p className="absolute bottom-7 text-center text-[9px] uppercase tracking-[0.35em] text-navy/45">
               {placeholderNote}
             </p>
           )}
