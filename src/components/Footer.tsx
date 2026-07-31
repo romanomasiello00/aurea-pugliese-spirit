@@ -23,6 +23,11 @@ export function Footer() {
               <p className="eyebrow">{t("footer.nav")}</p>
               <ul className="space-y-2 text-sm text-navy/80">
                 <li>
+                  <Link to="/shop" className="hover:text-gold transition-colors">
+                    {t("nav.shop")}
+                  </Link>
+                </li>
+                <li>
                   <Link to="/story" className="hover:text-gold transition-colors">
                     {t("nav.story")}
                   </Link>

@@ -43,6 +43,9 @@ export function Header() {
           <Link to="/craft" className={linkCls}>
             {t("nav.craft")}
           </Link>
+          <Link to="/shop" className={linkCls}>
+            {t("nav.shop")}
+          </Link>
         </div>
 
         {/* Center wordmark */}
@@ -99,6 +102,7 @@ export function Header() {
           <div className="px-6 py-8 flex flex-col gap-6 items-center">
             {[
               { to: "/craft", label: t("nav.craft") },
+              { to: "/shop", label: t("nav.shop") },
               { to: "/story", label: t("nav.story") },
               { to: "/contact", label: t("nav.contact") },
             ].map((item) => (
