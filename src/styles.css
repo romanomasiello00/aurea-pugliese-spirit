@@ -35,6 +35,7 @@
   --color-soft-white: var(--soft-white);
   --color-navy: var(--navy);
   --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
   --color-terra: var(--terra);
   --color-sand: var(--sand);
 
@@ -50,6 +51,8 @@
   --soft-white: #fbf8f2;
   --navy: #0f1b3d;
   --gold: #c9a84c;
+  /* Accessible gold for small text on crema/white (>= 4.5:1) */
+  --gold-ink: #7a5f18;
   --terra: #8b6f5e;
   --sand: #d9c4a3;
 
