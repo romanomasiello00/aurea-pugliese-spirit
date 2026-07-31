@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StoryRouteImport } from './routes/story'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ExpressionRouteImport } from './routes/expression'
 import { Route as CraftRouteImport } from './routes/craft'
@@ -23,6 +24,11 @@ import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
   path: '/story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/craft': typeof CraftRoute
   '/expression': typeof ExpressionRoute
   '/shop': typeof ShopRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/terms': typeof LegalTermsRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/craft': typeof CraftRoute
   '/expression': typeof ExpressionRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/terms': typeof LegalTermsRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/craft': typeof CraftRoute
   '/expression': typeof ExpressionRoute
   '/shop': typeof ShopRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/terms': typeof LegalTermsRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/craft'
     | '/expression'
     | '/shop'
+    | '/sitemap.xml'
     | '/story'
     | '/legal/privacy'
     | '/legal/terms'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/craft'
     | '/expression'
+    | '/sitemap.xml'
     | '/story'
     | '/legal/privacy'
     | '/legal/terms'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/craft'
     | '/expression'
     | '/shop'
+    | '/sitemap.xml'
     | '/story'
     | '/legal/privacy'
     | '/legal/terms'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   CraftRoute: typeof CraftRoute
   ExpressionRoute: typeof ExpressionRoute
   ShopRoute: typeof ShopRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StoryRoute: typeof StoryRoute
   LegalPrivacyRoute: typeof LegalPrivacyRoute
   LegalTermsRoute: typeof LegalTermsRoute
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       path: '/story'
       fullPath: '/story'
       preLoaderRoute: typeof StoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -249,6 +269,7 @@ const rootRouteChildren: RootRouteChildren = {
   CraftRoute: CraftRoute,
   ExpressionRoute: ExpressionRoute,
   ShopRoute: ShopRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StoryRoute: StoryRoute,
   LegalPrivacyRoute: LegalPrivacyRoute,
   LegalTermsRoute: LegalTermsRoute,
@@ -256,3 +277,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
