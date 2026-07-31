@@ -1,19 +1,36 @@
-## Why the last attempts failed
+# Shop — showcase & enquiry
 
-The wordmark in `aurea-logo-full.png` is a customized Didone (thick stems, hairline thins, and the curved crossbars inside both "A"s). No Google font — Playfair, Bodoni Moda, GFS Didot — reproduces it, because the crossbar curve isn't in any standard typeface. Any font swap will keep looking "close but wrong".
+A new Shop section in the Aurea style: editorial, crema/navy/gold, no checkout. Three expressions presented as a range, with a reservation enquiry flow. Bottle photography is stubbed with elegant placeholders that you can swap for real photos by dropping in image files — no code rewrite needed.
 
-## The fix: use the actual letterforms, not a font
+## Pages
 
-1. **Extract the wordmark** — take `src/assets/aurea-logo-full.png` (the original upload), crop only the "AUREA" band, drop the cream background to transparency, and threshold it to clean black/white.
-2. **Vectorize it** — run potrace on that crop to produce a single scalable SVG path of the exact AUREA letterforms (curved A crossbars included).
-3. **Drop it into the logo component** — in `src/components/AureaLogo.tsx`, replace the `<text>AUREA</text>` element with that `<path>` (filled navy `#0f1b3d`), scaled and centered on the same baseline inside the existing `viewBox`. Sharp at any size, identical to your picture.
-4. **Leave everything else untouched** — emblem, "TEQUILA ✹ PUGLIA" (gold star), "SOLE • TERRA • MARE • TEMPO", and the compact header variant stay as they are.
-5. **Clean up** — remove the now-unused Bodoni Moda / GFS Didot families from the Google Fonts link in `src/routes/__root.tsx` (Cormorant Garamond and Inter stay, they're still used).
+- `/shop` — the collection: intro line, three product cards (Blanco, Reposado, Añejo), tasting notes, availability status, "Reserve" action.
+- `/shop/$slug` — a single expression: large bottle frame, tasting notes (nose / palate / finish), craft details (agave, ageing, ABV, format), and the enquiry form.
 
-## Verification
+Navigation gets a Shop link in the header (desktop + mobile) and footer, in both EN and IT.
 
-Playwright screenshots of the hero logo and the footer logo, plus an element-level close-up of the wordmark, compared side by side against your original PNG to confirm the letterforms and spacing match and nothing overflows.
+## Product placeholder system
 
-## Technical detail
+All product data lives in one file, `src/lib/products.ts`: slug, name, subtitle, tasting notes, ageing, ABV, status (`available` / `coming-soon`), and an optional `image` field.
 
-Trace step uses `potrace` (fetched via `nix run nixpkgs#potrace`) on a high-resolution upscale of the crop so curves stay smooth; output is a single `<path d="...">` committed inline in the component (no extra network request, no raster pixelation). If the traced path is large, it goes into a small dedicated file (e.g. `src/components/AureaWordmark.tsx`) that `AureaLogo.tsx` imports.
+- While `image` is empty, the card renders a refined placeholder: a soft crema-to-sand gradient panel, a faint bottle silhouette outline, the gold sunburst mark, and a small "photography coming soon" caption. It looks intentional, not broken.
+- To use real photos later: drop the file into `src/assets/` and set one line — `image: bottleReposado` — in `src/lib/products.ts`. The placeholder disappears automatically. Nothing else to change.
+
+## Enquiry flow
+
+The "Reserve" button opens a form (name, email, quantity, message, product preselected). No payment, no backend: it composes a prefilled email to your contact address, plus a confirmation toast. Wording makes clear it's an allocation request, not a purchase.
+
+## Look and feel
+
+- Same visual language as the rest of the site: crema background, navy type, gold hairlines, Cormorant display headings.
+- Cards use a tall portrait frame with thin gold rule, uppercase letter-spaced labels, and a hover reveal of tasting notes.
+- Scroll fade-up on section entry; subtle parallax drift on the product frames.
+- Fully responsive; age gate and language switching already apply site-wide.
+
+## Technical notes
+
+- New routes: `src/routes/shop.index.tsx`, `src/routes/shop.$slug.tsx`, plus `src/routes/shop.tsx` layout rendering `<Outlet />`.
+- New: `src/lib/products.ts`, `src/components/BottleFrame.tsx` (placeholder/photo swap), `src/components/ReserveDialog.tsx`.
+- i18n keys added to `src/lib/i18n.tsx` for EN + IT.
+- Each route gets its own `head()` with unique title/description/og tags.
+- No database, no payments — pure frontend.
