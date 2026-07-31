@@ -79,7 +79,7 @@ export function ReserveDialog({ open, onClose, product }: Props) {
             <button
               type="button"
               onClick={onClose}
-              className="mt-8 text-[11px] uppercase tracking-[0.3em] text-gold hover:text-navy"
+              className="mt-8 text-[11px] uppercase tracking-[0.3em] text-gold-ink hover:text-navy"
             >
               {t("shop.form.close")}
             </button>

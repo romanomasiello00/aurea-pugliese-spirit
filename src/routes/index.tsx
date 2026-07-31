@@ -56,7 +56,7 @@ function Home() {
           <AureaLogo className="w-80 md:w-[30rem] lg:w-[38rem] h-auto mb-10 fade-in" />
 
           <div className="mb-8 py-2 px-4 border border-gold/40 rounded-full fade-in">
-            <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
+            <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold-ink">
               {t("badge.origin")}
             </span>
           </div>

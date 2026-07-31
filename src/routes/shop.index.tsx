@@ -140,7 +140,7 @@ function ProductCard({
           <button
             type="button"
             onClick={onReserve}
-            className="text-[10px] uppercase tracking-[0.3em] text-gold transition-colors hover:text-navy"
+            className="text-[10px] uppercase tracking-[0.3em] text-gold-ink transition-colors hover:text-navy"
           >
             {available ? t("shop.reserve") : t("shop.notify")} →
           </button>

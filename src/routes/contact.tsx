@@ -90,7 +90,7 @@ function ContactPage() {
             <button
               type="button"
               onClick={() => setStatus("idle")}
-              className="mt-4 text-[11px] uppercase tracking-[0.3em] text-gold hover:text-navy transition-colors"
+              className="mt-4 text-[11px] uppercase tracking-[0.3em] text-gold-ink hover:text-navy transition-colors"
             >
               ← Write another
             </button>

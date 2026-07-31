@@ -154,7 +154,7 @@ function ProductPage() {
 function Note({ label, body }: { label: string; body: string }) {
   return (
     <div className="grid grid-cols-[90px_1fr] gap-6">
-      <p className="pt-1 text-[10px] uppercase tracking-[0.3em] text-gold">{label}</p>
+      <p className="pt-1 text-[10px] uppercase tracking-[0.3em] text-gold-ink">{label}</p>
       <p className="leading-relaxed text-navy/75">{body}</p>
     </div>
   );

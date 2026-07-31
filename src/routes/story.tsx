@@ -89,7 +89,7 @@ function StoryPage() {
 
         <div className="mt-16 flex justify-center">
           <div className="px-6 py-2 border border-gold/40 rounded-full">
-            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-gold">
+            <span className="text-[10px] font-medium uppercase tracking-[0.4em] text-gold-ink">
               Hecho en México · Imported to Puglia
             </span>
           </div>
