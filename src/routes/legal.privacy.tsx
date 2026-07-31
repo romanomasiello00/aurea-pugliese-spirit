@@ -4,8 +4,10 @@ export const Route = createFileRoute("/legal/privacy")({
   head: () => ({
     meta: [
       { title: "Privacy — Aurea Tequila" },
-      { name: "description", content: "Aurea Tequila privacy notice." },
+      { name: "description", content: "How Aurea Tequila handles the personal data you share through the site and contact form." },
       { name: "robots", content: "noindex" },
+      { property: "og:title", content: "Privacy Notice — Aurea Tequila" },
+      { property: "og:description", content: "How Aurea Tequila collects, uses and protects personal data submitted through this site." },
       { property: "og:url", content: "/legal/privacy" },
     ],
     links: [{ rel: "canonical", href: "/legal/privacy" }],

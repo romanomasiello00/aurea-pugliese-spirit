@@ -10,6 +10,38 @@ import fourIcons from "@/assets/aurea-four-icons.png";
 import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Aurea Tequila — Blue Agave Tequila from Mexico to Puglia" },
+      {
+        name: "description",
+        content:
+          "Where the golden soul of Mexico meets the timeless light of Puglia. Aurea: 100% blue agave tequila, copper-distilled and rested in oak.",
+      },
+      { property: "og:title", content: "Aurea Tequila — From Mexico to Puglia" },
+      {
+        property: "og:description",
+        content:
+          "Where the golden soul of Mexico meets the timeless light of Puglia. 100% blue agave, copper-distilled, rested in oak.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://aurea-pugliese-spirit.lovable.app/" },
+    ],
+    links: [{ rel: "canonical", href: "https://aurea-pugliese-spirit.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Aurea Tequila",
+          url: "https://aurea-pugliese-spirit.lovable.app/",
+          description:
+            "Where the golden soul of Mexico meets the timeless light of Puglia.",
+        }),
+      },
+    ],
+  }),
   component: Home,
 });
 
