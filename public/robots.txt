@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /legal/
+
+Sitemap: https://aurea-pugliese-spirit.lovable.app/sitemap.xml

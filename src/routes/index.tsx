@@ -10,6 +10,38 @@ import fourIcons from "@/assets/aurea-four-icons.png";
 import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Aurea Tequila — Blue Agave Tequila from Mexico to Puglia" },
+      {
+        name: "description",
+        content:
+          "Where the golden soul of Mexico meets the timeless light of Puglia. Aurea: 100% blue agave tequila, copper-distilled and rested in oak.",
+      },
+      { property: "og:title", content: "Aurea Tequila — From Mexico to Puglia" },
+      {
+        property: "og:description",
+        content:
+          "Where the golden soul of Mexico meets the timeless light of Puglia. 100% blue agave, copper-distilled, rested in oak.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://aurea-pugliese-spirit.lovable.app/" },
+    ],
+    links: [{ rel: "canonical", href: "https://aurea-pugliese-spirit.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Aurea Tequila",
+          url: "https://aurea-pugliese-spirit.lovable.app/",
+          description:
+            "Where the golden soul of Mexico meets the timeless light of Puglia.",
+        }),
+      },
+    ],
+  }),
   component: Home,
 });
 
@@ -24,7 +56,7 @@ function Home() {
           <AureaLogo className="w-80 md:w-[30rem] lg:w-[38rem] h-auto mb-10 fade-in" />
 
           <div className="mb-8 py-2 px-4 border border-gold/40 rounded-full fade-in">
-            <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold">
+            <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-gold-ink">
               {t("badge.origin")}
             </span>
           </div>
@@ -44,8 +76,11 @@ function Home() {
                 alt="Blue agave field meeting a Puglian olive grove at golden hour"
                 width={1920}
                 height={1080}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
+
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-crema/60" />
             </div>
           </div>

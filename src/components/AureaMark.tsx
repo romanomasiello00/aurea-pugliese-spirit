@@ -65,7 +65,7 @@ export function AureaWordmark({ className }: { className?: string }) {
       <span className="font-display text-2xl font-medium tracking-[0.35em] text-navy uppercase leading-none">
         Aurea
       </span>
-      <span className="text-[8px] uppercase tracking-[0.4em] text-gold">
+      <span className="text-[8px] uppercase tracking-[0.4em] text-gold-ink">
         Tequila · Puglia
       </span>
     </div>

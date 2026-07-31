@@ -4,8 +4,10 @@ export const Route = createFileRoute("/legal/terms")({
   head: () => ({
     meta: [
       { title: "Terms — Aurea Tequila" },
-      { name: "description", content: "Aurea Tequila terms of use." },
+      { name: "description", content: "Terms of use for the Aurea Tequila site, including legal drinking age and responsible enjoyment." },
       { name: "robots", content: "noindex" },
+      { property: "og:title", content: "Terms of Use — Aurea Tequila" },
+      { property: "og:description", content: "Conditions for using the Aurea Tequila site: legal drinking age, content use and responsible enjoyment." },
       { property: "og:url", content: "/legal/terms" },
     ],
     links: [{ rel: "canonical", href: "/legal/terms" }],

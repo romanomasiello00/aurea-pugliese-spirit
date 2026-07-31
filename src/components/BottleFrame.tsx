@@ -54,7 +54,7 @@ export function BottleFrame({ image, alt, label, className, placeholderNote }: P
       )}
 
       {label && (
-        <span className="absolute left-6 top-6 text-[9px] uppercase tracking-[0.35em] text-gold">
+        <span className="absolute left-6 top-6 text-[9px] uppercase tracking-[0.35em] text-gold-ink">
           {label}
         </span>
       )}

@@ -28,6 +28,27 @@ export const Route = createFileRoute("/shop/$slug")({
         { property: "og:url", content: `/shop/${p.slug}` },
       ],
       links: [{ rel: "canonical", href: `/shop/${p.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `Aurea ${p.name}`,
+            description,
+            category: "Tequila",
+            brand: { "@type": "Brand", name: "Aurea Tequila" },
+            url: `https://aurea-pugliese-spirit.lovable.app/shop/${p.slug}`,
+            ...(p.image ? { image: p.image } : {}),
+            additionalProperty: [
+              { "@type": "PropertyValue", name: "Agave", value: p.agave.en },
+              { "@type": "PropertyValue", name: "Ageing", value: p.ageing.en },
+              { "@type": "PropertyValue", name: "ABV", value: p.abv },
+              { "@type": "PropertyValue", name: "Format", value: p.format },
+            ],
+          }),
+        },
+      ],
     };
   },
   component: ProductPage,
@@ -133,7 +154,7 @@ function ProductPage() {
 function Note({ label, body }: { label: string; body: string }) {
   return (
     <div className="grid grid-cols-[90px_1fr] gap-6">
-      <p className="pt-1 text-[10px] uppercase tracking-[0.3em] text-gold">{label}</p>
+      <p className="pt-1 text-[10px] uppercase tracking-[0.3em] text-gold-ink">{label}</p>
       <p className="leading-relaxed text-navy/75">{body}</p>
     </div>
   );
