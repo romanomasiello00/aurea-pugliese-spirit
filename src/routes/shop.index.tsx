@@ -24,6 +24,27 @@ export const Route = createFileRoute("/shop/")({
       { property: "og:url", content: "/shop" },
     ],
     links: [{ rel: "canonical", href: "/shop" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "The Aurea Collection",
+          description:
+            "Three expressions of Aurea tequila — Blanco, Reposado and Añejo. 100% blue agave, made in Mexico, rested for Puglia.",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: products.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: `Aurea ${p.name}`,
+              url: `https://aurea-pugliese-spirit.lovable.app/shop/${p.slug}`,
+            })),
+          },
+        }),
+      },
+    ],
   }),
   component: ShopPage,
 });
