@@ -1,5 +1,3 @@
-import { AureaWordmark } from "./AureaWordmark";
-
 interface Props {
   className?: string;
   alt?: string;
@@ -17,12 +15,12 @@ interface Props {
  *   – 28 tapered needle rays radiating outward, alternating opacity
  *   – navy-outlined 3-leaf lotus centerpiece filled cream
  *
- * variant="full"    → emblem + AUREA + TEQUILA ✹ PUGLIA + SOLE • TERRA • MARE • TEMPO
- * variant="compact" → emblem + TEQUILA ✹ PUGLIA (used in the sticky header)
+ * variant="full"    → emblem + MMM + ✹ PUGLIA + SOLE • TERRA • MARE • TEMPO
+ * variant="compact" → emblem + ✹ PUGLIA (used in the sticky header)
  */
 export function AureaLogo({
   className,
-  alt = "MMM S.r.l. Tequila Puglia",
+  alt = "MMM S.r.l. Puglia",
   style,
   variant = "full",
 }: Props) {
@@ -99,12 +97,22 @@ export function AureaLogo({
           fontWeight="500"
           letterSpacing="14"
         >
-          TEQUILA  <tspan fill="#c9a84c" fontSize="56" fontWeight="600" dy="-4">✹</tspan>  PUGLIA
+          <tspan fill="#c9a84c" fontSize="56" fontWeight="600" dy="-4">✹</tspan>  PUGLIA
         </text>
       ) : (
 
         <>
-          <AureaWordmark x={150} y={413} width={600} height={117} fill="#0f1b3d" />
+          <text
+            x="450"
+            y="505"
+            textAnchor="middle"
+            fill="#0f1b3d"
+            fontFamily="'Noteworthy Bold', 'Noteworthy', 'Bradley Hand', cursive"
+            fontWeight="700"
+            fontSize="120"
+          >
+            MMM
+          </text>
 
           <text
             x="450"
@@ -116,7 +124,7 @@ export function AureaLogo({
             fontWeight="500"
             letterSpacing="18"
           >
-            TEQUILA  <tspan fill="#c9a84c">✹</tspan>  PUGLIA
+            <tspan fill="#c9a84c">✹</tspan>  PUGLIA
           </text>
 
           <text
