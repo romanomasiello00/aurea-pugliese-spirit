@@ -15,7 +15,7 @@ interface Props {
  *   – 28 tapered needle rays radiating outward, alternating opacity
  *   – navy-outlined 3-leaf lotus centerpiece filled cream
  *
- * variant="full"    → emblem + MMM + ✹ PUGLIA + SOLE • TERRA • MARE • TEMPO
+ * variant="full"    → emblem + MMM S.r.l. + ✹ PUGLIA + SOLE • TERRA • MARE • TEMPO
  * variant="compact" → emblem + ✹ PUGLIA (used in the sticky header)
  */
 export function AureaLogo({
@@ -111,7 +111,7 @@ export function AureaLogo({
             fontWeight="700"
             fontSize="120"
           >
-            MMM
+            MMM <tspan fontFamily="'Cormorant Garamond', Georgia, serif" fontWeight="500" fontSize="54">S.r.l.</tspan>
           </text>
 
           <text
