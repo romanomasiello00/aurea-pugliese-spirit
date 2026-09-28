@@ -111,7 +111,7 @@ export function AureaLogo({
             fontWeight="700"
             fontSize="120"
           >
-            MMM <tspan fontFamily="'Cormorant Garamond', Georgia, serif" fontWeight="500" fontSize="54">S.r.l.</tspan>
+            MMM <tspan fontSize="54">S.r.l.</tspan>
           </text>
 
           <text
