@@ -13,7 +13,8 @@ import { Route as StoryRouteImport } from './routes/story'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ExpressionRouteImport } from './routes/expression'
-import { Route as CraftRouteImport } from './routes/craft'
+import { Route as Tequila2RouteImport } from './routes/tequila-2'
+import { Route as Tequila1RouteImport } from './routes/tequila-1'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopIndexRouteImport } from './routes/shop.index'
@@ -41,9 +42,14 @@ const ExpressionRoute = ExpressionRouteImport.update({
   path: '/expression',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CraftRoute = CraftRouteImport.update({
-  id: '/craft',
-  path: '/craft',
+const Tequila2Route = Tequila2RouteImport.update({
+  id: '/tequila-2',
+  path: '/tequila-2',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Tequila1Route = Tequila1RouteImport.update({
+  id: '/tequila-1',
+  path: '/tequila-1',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -80,7 +86,8 @@ const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/craft': typeof CraftRoute
+  '/tequila-1': typeof Tequila1Route
+  '/tequila-2': typeof Tequila2Route
   '/expression': typeof ExpressionRoute
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -93,7 +100,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/craft': typeof CraftRoute
+  '/tequila-1': typeof Tequila1Route
+  '/tequila-2': typeof Tequila2Route
   '/expression': typeof ExpressionRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/story': typeof StoryRoute
@@ -106,7 +114,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/craft': typeof CraftRoute
+  '/tequila-1': typeof Tequila1Route
+  '/tequila-2': typeof Tequila2Route
   '/expression': typeof ExpressionRoute
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -121,7 +130,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contact'
-    | '/craft'
+    | '/tequila-1'
+    | '/tequila-2'
     | '/expression'
     | '/shop'
     | '/sitemap.xml'
@@ -134,7 +144,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
-    | '/craft'
+    | '/tequila-1'
+    | '/tequila-2'
     | '/expression'
     | '/sitemap.xml'
     | '/story'
@@ -146,7 +157,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contact'
-    | '/craft'
+    | '/tequila-1'
+    | '/tequila-2'
     | '/expression'
     | '/shop'
     | '/sitemap.xml'
@@ -160,7 +172,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  CraftRoute: typeof CraftRoute
+  Tequila1Route: typeof Tequila1Route
+  Tequila2Route: typeof Tequila2Route
   ExpressionRoute: typeof ExpressionRoute
   ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -199,11 +212,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExpressionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/craft': {
-      id: '/craft'
-      path: '/craft'
-      fullPath: '/craft'
-      preLoaderRoute: typeof CraftRouteImport
+    '/tequila-2': {
+      id: '/tequila-2'
+      path: '/tequila-2'
+      fullPath: '/tequila-2'
+      preLoaderRoute: typeof Tequila2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tequila-1': {
+      id: '/tequila-1'
+      path: '/tequila-1'
+      fullPath: '/tequila-1'
+      preLoaderRoute: typeof Tequila1RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -266,7 +286,8 @@ const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  CraftRoute: CraftRoute,
+  Tequila1Route: Tequila1Route,
+  Tequila2Route: Tequila2Route,
   ExpressionRoute: ExpressionRoute,
   ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

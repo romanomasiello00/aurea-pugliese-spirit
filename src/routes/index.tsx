@@ -2,27 +2,22 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useTranslation } from "@/lib/i18n";
 import heroLandscape from "@/assets/hero-landscape.jpg";
 import storyHands from "@/assets/story-hands.jpg";
-import craftSole from "@/assets/craft-sole.jpg";
-import craftTerra from "@/assets/craft-terra.jpg";
-import craftMare from "@/assets/craft-mare.jpg";
-import craftTempo from "@/assets/craft-tempo.jpg";
-import fourIcons from "@/assets/aurea-four-icons.png";
 import { AureaLogo } from "@/components/AureaLogo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aurea Tequila — Blue Agave Tequila from Mexico to Puglia" },
+      { title: "MMM S.r.l. — A House of Tequila Brands" },
       {
         name: "description",
         content:
-          "Where the golden soul of Mexico meets the timeless light of Puglia. Aurea: 100% blue agave tequila, copper-distilled and rested in oak.",
+          "Where the golden soul of Mexico meets the timeless light of Puglia. MMM S.r.l. is a house of tequila brands, crafted with care and rooted in place.",
       },
-      { property: "og:title", content: "Aurea Tequila — From Mexico to Puglia" },
+      { property: "og:title", content: "MMM S.r.l. — A House of Tequila Brands" },
       {
         property: "og:description",
         content:
-          "Where the golden soul of Mexico meets the timeless light of Puglia. 100% blue agave, copper-distilled, rested in oak.",
+          "Where the golden soul of Mexico meets the timeless light of Puglia. A house of tequila brands, crafted with care and rooted in place.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://aurea-pugliese-spirit.lovable.app/" },
@@ -34,7 +29,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Aurea Tequila",
+          name: "MMM S.r.l.",
           url: "https://aurea-pugliese-spirit.lovable.app/",
           description:
             "Where the golden soul of Mexico meets the timeless light of Puglia.",
@@ -138,108 +133,39 @@ function Home() {
         </div>
       </section>
 
-      {/* EXPRESSION TEASER */}
-      <section className="py-24 md:py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-soft-white ring-1 ring-navy/5 rounded-2xl p-10 md:p-16 lg:p-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Four icons artwork */}
-              <div className="flex items-center justify-center">
-                <img
-                  src={fourIcons}
-                  alt="Sole, Terra, Mare, Tempo — the four pillars of Aurea Tequila"
-                  width={1920}
-                  height={429}
-                  loading="lazy"
-                  className="w-full max-w-lg h-auto"
-                />
-              </div>
-
-              <div className="space-y-10">
-                {[
-                  { k: "nose", label: t("expression.nose"), body: t("expression.nose.body") },
-                  { k: "palate", label: t("expression.palate"), body: t("expression.palate.body") },
-                  { k: "finish", label: t("expression.finish"), body: t("expression.finish.body") },
-                ].map((n, i, arr) => (
-                  <div key={n.k} className={i < arr.length - 1 ? "border-b border-navy/10 pb-8" : ""}>
-                    <p className="eyebrow mb-3">{n.label}</p>
-                    <p className="font-display text-2xl md:text-3xl text-navy italic leading-snug">
-                      {n.body}
-                    </p>
-                  </div>
-                ))}
-                <Link
-                  to="/expression"
-                  className="group inline-flex items-center gap-4 pt-2"
-                >
-                  <span className="size-11 rounded-full bg-navy text-crema grid place-items-center transition-colors group-hover:bg-gold group-hover:text-navy">
-                    →
-                  </span>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-navy group-hover:text-gold transition-colors">
-                    {t("home.expression.cta")}
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CRAFT TEASER (dark section) */}
+      {/* BRANDS TEASER */}
       <section className="py-24 md:py-32 px-6 bg-navy text-soft-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16 md:mb-20 max-w-3xl">
+          <div className="mb-16 md:mb-20 max-w-3xl text-center mx-auto">
             <p className="text-[10px] uppercase tracking-[0.35em] text-gold mb-6">
-              {t("home.craft.eyebrow")}
+              {t("home.brands.eyebrow")}
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-medium leading-tight mb-6 text-balance">
-              {t("home.craft.title")}
+              {t("home.brands.title")}
             </h2>
-            <p className="text-soft-white/60 leading-relaxed max-w-[44ch]">
-              {t("home.craft.body")}
+            <p className="text-soft-white/60 leading-relaxed max-w-[44ch] mx-auto">
+              {t("home.brands.body")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-soft-white/10 border border-soft-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-soft-white/10 border border-soft-white/10">
             {[
-              { num: "I", img: craftSole, title: t("craft.sole.title"), body: t("craft.sole.body") },
-              { num: "II", img: craftTerra, title: t("craft.terra.title"), body: t("craft.terra.body") },
-              { num: "III", img: craftMare, title: t("craft.mare.title"), body: t("craft.mare.body") },
-              { num: "IV", img: craftTempo, title: t("craft.tempo.title"), body: t("craft.tempo.body") },
-            ].map((g) => (
-              <div
-                key={g.num}
-                className="group bg-navy p-8 md:p-10 flex flex-col aspect-[3/4] overflow-hidden relative"
+              { to: "/tequila-1" as const, name: t("nav.tequila1") },
+              { to: "/tequila-2" as const, name: t("nav.tequila2") },
+            ].map((brand) => (
+              <Link
+                key={brand.to}
+                to={brand.to}
+                className="group bg-navy p-10 md:p-14 flex flex-col items-center text-center gap-4 hover:bg-navy/80 transition-colors"
               >
-                <div className="absolute inset-0 opacity-15 group-hover:opacity-30 transition-opacity duration-700">
-                  <img
-                    src={g.img}
-                    alt=""
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="relative flex flex-col h-full justify-between">
-                  <span className="font-display text-2xl italic text-gold">{g.num}</span>
-                  <div>
-                    <h3 className="font-display text-2xl text-soft-white mb-3 leading-tight">
-                      {g.title}
-                    </h3>
-                    <p className="text-xs text-soft-white/70 leading-relaxed">{g.body}</p>
-                  </div>
-                </div>
-              </div>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-gold">
+                  {t("shop.comingSoon")}
+                </span>
+                <span className="font-display text-3xl italic text-soft-white group-hover:text-gold transition-colors">
+                  {brand.name}
+                </span>
+              </Link>
             ))}
-          </div>
-
-          <div className="mt-12 flex justify-center">
-            <Link
-              to="/craft"
-              className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-soft-white hover:text-gold transition-colors"
-            >
-              {t("home.craft.cta")}
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
           </div>
         </div>
       </section>

@@ -41,6 +41,7 @@
 
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-brand: "Noteworthy Bold", "Noteworthy", "Bradley Hand", cursive;
 }
 
 :root {
@@ -110,6 +111,12 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+  }
+  /* ponytail: Noteworthy is an Apple system font, no web-loadable file exists;
+     renders as Noteworthy Bold on Apple devices, falls back to cursive elsewhere */
+  .font-brand {
+    font-family: var(--font-brand);
+    font-weight: 700;
   }
   .eyebrow {
     font-size: 10px;

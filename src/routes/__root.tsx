@@ -20,7 +20,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-crema px-4 text-center">
       <div className="max-w-md">
-        <p className="eyebrow mb-6">Aurea</p>
+        <p className="eyebrow font-brand mb-6">MMM S.r.l.</p>
         <h1 className="font-display text-6xl text-navy">404</h1>
         <p className="mt-4 text-navy/70">This page hasn't found its home yet.</p>
         <Link
@@ -43,7 +43,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-crema px-4 text-center">
       <div className="max-w-md">
-        <p className="eyebrow mb-6">Aurea</p>
+        <p className="eyebrow font-brand mb-6">MMM S.r.l.</p>
         <h1 className="font-display text-3xl text-navy">Something went quiet.</h1>
         <p className="mt-3 text-navy/70">The page didn't load. Try again.</p>
         <div className="mt-8 flex justify-center gap-3">
@@ -73,25 +73,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aurea — Tequila Puglia" },
+      { title: "MMM S.r.l. — A House of Tequila Brands" },
       {
         name: "description",
         content:
-          "Aurea: 100% blue agave tequila made in Mexico, rested in oak and brought home to Puglia.",
+          "MMM S.r.l. is a house of tequila brands, born between Mexico and Puglia.",
       },
-      { name: "author", content: "Aurea Tequila" },
-      { property: "og:title", content: "Aurea — Tequila Puglia" },
+      { name: "author", content: "MMM S.r.l." },
+      { property: "og:title", content: "MMM S.r.l. — A House of Tequila Brands" },
       {
         property: "og:description",
         content:
-          "Aurea: 100% blue agave tequila made in Mexico, rested in oak and brought home to Puglia.",
+          "MMM S.r.l. is a house of tequila brands, born between Mexico and Puglia.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Aurea Tequila" },
+      { property: "og:site_name", content: "MMM S.r.l." },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#f5efe4" },
-      { name: "twitter:title", content: "Aurea — Tequila Puglia" },
-      { name: "twitter:description", content: "Aurea: 100% blue agave tequila made in Mexico, rested in oak and brought home to Puglia." },
+      { name: "twitter:title", content: "MMM S.r.l. — A House of Tequila Brands" },
+      { name: "twitter:description", content: "MMM S.r.l. is a house of tequila brands, born between Mexico and Puglia." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04dcf0fa-c943-43cd-8423-9814e3124d0b/id-preview-1787fef6--1f2af0cb-525a-47da-b48f-0ffd4da33691.lovable.app-1784533953874.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/04dcf0fa-c943-43cd-8423-9814e3124d0b/id-preview-1787fef6--1f2af0cb-525a-47da-b48f-0ffd4da33691.lovable.app-1784533953874.png" },
     ],
@@ -115,9 +115,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Aurea Tequila",
+          name: "MMM S.r.l.",
           description:
-            "Premium tequila made in Mexico with 100% blue agave and imported to Puglia by three friends.",
+            "A house of tequila brands, born between Mexico and Puglia and founded by three friends.",
           slogan: "Where the golden soul of Mexico meets the timeless light of Puglia.",
           founder: [
             { "@type": "Person", name: "Luigi Marinaro" },

@@ -39,8 +39,8 @@ export const products: Product[] = [
     name: "Blanco",
     subtitle: { en: "Unrested · Pure agave", it: "Non riposato · Agave pura" },
     intro: {
-      en: "The first light. Bottled straight after distillation, Blanco is Aurea without a veil — the raw voice of the blue agave, bright and mineral.",
-      it: "La prima luce. Imbottigliata subito dopo la distillazione, Blanco è Aurea senza velo — la voce nuda dell'agave blu, luminosa e minerale.",
+      en: "The first light. Bottled straight after distillation, Blanco is MMM S.r.l. without a veil — the raw voice of the blue agave, bright and mineral.",
+      it: "La prima luce. Imbottigliata subito dopo la distillazione, Blanco è MMM S.r.l. senza velo — la voce nuda dell'agave blu, luminosa e minerale.",
     },
     nose: {
       en: "Cooked agave, lime zest, wet stone.",
@@ -62,8 +62,8 @@ export const products: Product[] = [
     name: "Reposado",
     subtitle: { en: "Rested in oak · The signature", it: "Riposata in rovere · La firma" },
     intro: {
-      en: "The heart of Aurea. Slow-cooked agave, copper-pot distilled, then rested in oak until it finds its balance. A reposado that speaks softly.",
-      it: "Il cuore di Aurea. Agave cotta lentamente, distillata in alambicco di rame, poi riposata in rovere finché non trova il suo equilibrio. Un reposado che parla piano.",
+      en: "The heart of MMM S.r.l. Slow-cooked agave, copper-pot distilled, then rested in oak until it finds its balance. A reposado that speaks softly.",
+      it: "Il cuore di MMM S.r.l. Agave cotta lentamente, distillata in alambicco di rame, poi riposata in rovere finché non trova il suo equilibrio. Un reposado che parla piano.",
     },
     nose: {
       en: "Cooked agave, vanilla, orange peel and a breath of Mediterranean scrub.",
@@ -88,8 +88,8 @@ export const products: Product[] = [
     name: "Añejo",
     subtitle: { en: "Long rest · Limited release", it: "Lungo riposo · Edizione limitata" },
     intro: {
-      en: "Time made visible. A longer rest in oak deepens the colour and rounds every edge — Aurea at its most contemplative.",
-      it: "Il tempo reso visibile. Un riposo più lungo in rovere approfondisce il colore e arrotonda ogni spigolo — Aurea nella sua forma più contemplativa.",
+      en: "Time made visible. A longer rest in oak deepens the colour and rounds every edge — MMM S.r.l. at its most contemplative.",
+      it: "Il tempo reso visibile. Un riposo più lungo in rovere approfondisce il colore e arrotonda ogni spigolo — MMM S.r.l. nella sua forma più contemplativa.",
     },
     nose: {
       en: "Dried fig, toasted almond, cocoa and warm spice.",

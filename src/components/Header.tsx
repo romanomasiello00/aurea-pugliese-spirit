@@ -40,8 +40,11 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between gap-8">
         {/* Left nav (desktop) */}
         <div className="hidden md:flex gap-8 flex-1 justify-start">
-          <Link to="/craft" className={linkCls}>
-            {t("nav.craft")}
+          <Link to="/tequila-1" className={linkCls}>
+            {t("nav.tequila1")}
+          </Link>
+          <Link to="/tequila-2" className={linkCls}>
+            {t("nav.tequila2")}
           </Link>
           <Link to="/shop" className={linkCls}>
             {t("nav.shop")}
@@ -49,7 +52,7 @@ export function Header() {
         </div>
 
         {/* Center wordmark */}
-        <Link to="/" className="flex items-center group" aria-label="Aurea home">
+        <Link to="/" className="flex items-center group" aria-label="MMM S.r.l. home">
           <AureaLogo
             variant="compact"
             className="w-40 md:w-48 h-auto origin-center transition-transform duration-300 ease-out group-hover:opacity-90"
@@ -101,7 +104,8 @@ export function Header() {
         <div className="md:hidden border-t border-navy/5 bg-crema/95 backdrop-blur-md">
           <div className="px-6 py-8 flex flex-col gap-6 items-center">
             {[
-              { to: "/craft", label: t("nav.craft") },
+              { to: "/tequila-1", label: t("nav.tequila1") },
+              { to: "/tequila-2", label: t("nav.tequila2") },
               { to: "/shop", label: t("nav.shop") },
               { to: "/story", label: t("nav.story") },
               { to: "/contact", label: t("nav.contact") },

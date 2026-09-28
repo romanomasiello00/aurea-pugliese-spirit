@@ -39,7 +39,7 @@ export function AgeGate() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(15,27,61,0.06)_100%)]" />
       <div className="relative w-full max-w-lg mx-4 text-center">
         <AureaMark className="mx-auto size-16 mb-8" />
-        <p className="eyebrow mb-6">Aurea · Tequila · Puglia</p>
+        <p className="eyebrow font-brand mb-6">MMM S.r.l. · Tequila · Puglia</p>
         <h2
           id="age-gate-title"
           className="font-display text-4xl md:text-5xl font-medium text-navy mb-6 text-balance"

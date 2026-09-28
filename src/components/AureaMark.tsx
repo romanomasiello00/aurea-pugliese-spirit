@@ -62,8 +62,8 @@ export function AureaWordmark({ className }: { className?: string }) {
   return (
     <div className={"flex flex-col items-center gap-1 " + (className ?? "")}>
       <AureaMark className="size-8" />
-      <span className="font-display text-2xl font-medium tracking-[0.35em] text-navy uppercase leading-none">
-        Aurea
+      <span className="font-brand text-2xl text-navy leading-none">
+        MMM S.r.l.
       </span>
       <span className="text-[8px] uppercase tracking-[0.4em] text-gold-ink">
         Tequila · Puglia

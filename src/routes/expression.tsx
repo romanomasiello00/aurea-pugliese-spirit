@@ -1,17 +1,17 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useTranslation } from "@/lib/i18n";
 import { AureaMark } from "@/components/AureaMark";
 
 export const Route = createFileRoute("/expression")({
   head: () => ({
     meta: [
-      { title: "Reposado — Aurea Tequila" },
+      { title: "Reposado — MMM S.r.l." },
       {
         name: "description",
         content:
-          "Aurea Reposado. 100% blue agave, slow-cooked, copper-pot distilled, rested in oak. A reposado that speaks softly.",
+          "MMM S.r.l. Reposado. 100% blue agave, slow-cooked, copper-pot distilled, rested in oak. A reposado that speaks softly.",
       },
-      { property: "og:title", content: "Aurea Reposado" },
+      { property: "og:title", content: "MMM S.r.l. Reposado" },
       {
         property: "og:description",
         content:
@@ -27,10 +27,10 @@ export const Route = createFileRoute("/expression")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Product",
-          name: "Aurea Reposado",
+          name: "MMM S.r.l. Reposado",
           description:
             "100% blue agave tequila, slow-cooked, copper-pot distilled and rested in oak barrels.",
-          brand: { "@type": "Brand", name: "Aurea Tequila" },
+          brand: { "@type": "Brand", name: "MMM S.r.l." },
           category: "Tequila Reposado",
         }),
       },
@@ -64,8 +64,8 @@ function ExpressionPage() {
               <div className="absolute inset-4 border border-gold/30 rounded-sm pointer-events-none" />
               <AureaMark className="size-16 mt-4 relative" />
               <div className="space-y-4 relative">
-                <p className="font-display text-5xl text-navy tracking-[0.15em] uppercase">
-                  Aurea
+                <p className="font-brand text-4xl text-navy tracking-[0.05em]">
+                  MMM S.r.l.
                 </p>
                 <div className="h-px w-12 bg-gold mx-auto" />
                 <p className="text-[10px] uppercase tracking-[0.5em] text-navy/70">Reposado</p>
@@ -99,22 +99,6 @@ function ExpressionPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-6 bg-soft-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="eyebrow mb-6">The Craft</p>
-          <h2 className="font-display text-3xl md:text-4xl text-navy mb-8 italic">
-            Four gestures behind every drop.
-          </h2>
-          <Link
-            to="/craft"
-            className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-navy hover:text-gold transition-colors"
-          >
-            See the process
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </Link>
         </div>
       </section>
     </>

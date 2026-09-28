@@ -14,7 +14,7 @@ export function Footer() {
               {t("footer.tagline")}
             </p>
             <p className="text-[10px] uppercase tracking-[0.4em] text-gold-ink">
-              Hecho en México · Imported to Puglia
+              {t("badge.origin")}
             </p>
           </div>
 
@@ -38,8 +38,13 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/craft" className="hover:text-gold transition-colors">
-                    {t("nav.craft")}
+                  <Link to="/tequila-1" className="hover:text-gold transition-colors">
+                    {t("nav.tequila1")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/tequila-2" className="hover:text-gold transition-colors">
+                    {t("nav.tequila2")}
                   </Link>
                 </li>
               </ul>

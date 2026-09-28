@@ -3,11 +3,11 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/legal/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy — Aurea Tequila" },
-      { name: "description", content: "How Aurea Tequila handles the personal data you share through the site and contact form." },
+      { title: "Privacy — MMM S.r.l." },
+      { name: "description", content: "How MMM S.r.l. handles the personal data you share through the site and contact form." },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Privacy Notice — Aurea Tequila" },
-      { property: "og:description", content: "How Aurea Tequila collects, uses and protects personal data submitted through this site." },
+      { property: "og:title", content: "Privacy Notice — MMM S.r.l." },
+      { property: "og:description", content: "How MMM S.r.l. collects, uses and protects personal data submitted through this site." },
       { property: "og:url", content: "/legal/privacy" },
     ],
     links: [{ rel: "canonical", href: "/legal/privacy" }],
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/legal/privacy")({
       <h1 className="font-display text-5xl text-navy mb-10 italic">Privacy</h1>
       <div className="space-y-6 text-navy/80 leading-relaxed">
         <p>
-          Aurea Tequila respects your privacy. This page is a placeholder for the full privacy
+          MMM S.r.l. respects your privacy. This page is a placeholder for the full privacy
           notice, which will be published shortly.
         </p>
         <p>

@@ -22,7 +22,7 @@ interface Props {
  */
 export function AureaLogo({
   className,
-  alt = "Aurea Tequila Puglia",
+  alt = "MMM S.r.l. Tequila Puglia",
   style,
   variant = "full",
 }: Props) {
